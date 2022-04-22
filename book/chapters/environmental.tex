@@ -1,0 +1,189 @@
+\chapter{Environmental Shortcomings}
+
+The technical inefficiencies of cryptocurrencies are the mark of a technology
+which is over-extended and not fit for purpose. However, more concerning is the
+environmental footprint these technologies introduce to the world. Bitcoin and
+currencies that use the \textit{proof-of-work} method, require massive
+consumption of energy to produce coins. This feature is central to their
+operation and is the mechanism that allegedly ``builds trust'' in the network.
+No network participant has any privileged status except in the amount of energy
+they expend to maintain consistency of the network itself. The amount of energy
+spent in the global block lottery results in an expected direct return per watt
+which is statistically predictable. In a nutshell the premise of mining is to
+prove how much power you can waste, and the more power you can waste, the more
+resources you get for yourself. \cite{gerard2017attack}
+
+The environmental impact of any technology has to be considered within a
+framework its environmental shortcomings because the stakes of our era are so
+high. Climate change is happening now, the earth is getting hotter and the polar
+ice caps are melting. In Greenland the glaciers are receding six times faster
+than expected.
+
+\index{proof-of-work}
+\section{Wasteful Mining}
+
+The bitcoin network automatically adjusts the difficulty of mining so that each
+block takes an average of 10 minutes to mine. If a miner performs a fixed number
+$H$ of hashes every 10 minutes, this means that each hash has a $1/H$ chance of
+mining a block. If a miner performs N hashes every minute, the number of blocks
+they can expect to find per minute follows a binomial distribution with maximum
+$N$ and with probability $1/H$. We can then compute the expected value of the
+binomial distribution, calculated by multiplying the number of trials by the
+probability of successes. The expected return is the expected value of computing
+a block times the block reward amount (currently 6.25 bitcoins). This expected
+return can then be computed as a function of a single variable: the number of
+hashes a miner can compute per second.  This unit is dimensionalized in
+hashes/second and often denoted in megahashes ($10^6$ or Mhash/s), gigahashes
+($10^9$ Ghash/s) or terrahashes ($10^{12}$ Thash/s). At time of writing in order
+for a data centre to consistently produce an expected return of 1 bitcoin per
+day would require approximately 140,000 Thash/s.  These computations are
+typically spread over many racks of compute devices running in parallel.
+
+\index{bitcoin!energy consumption}
+
+Off-the-shelf computers can be used for building cryptocurrency mining
+rigs, however the performance of these devices is suboptimal compared to
+dedicated mining hardware. A top of the line CPU such as the Intel i9
+processor can perform 5.2 Mhash/s with an expected return of 0.00000001
+bitcoin per week or at time of writing \$0.00012 per week. Mining using
+standard CPUs found in most computers is generally infeasible. However a
+single specialized \textit{graphics processing unit} (GPU) such as an Nvidia
+GeForce RTX 2070 uses a model of execution with a great deal more
+parallelism, and can have up to 42 Mhash/s and has an expected return of
+0.0051 bitcoin per month or \$60.30 per month. One of these graphics
+cards retails between \$500 and \$1000 per device and consumes 214 watts
+of power.
+
+\index{graphics processing unit}
+
+As many people learned during the California gold rush, sometimes the most
+profitable activity is often not mining itself but selling picks and shovels to
+the miners. Globally there is a cottage industry of services and providers
+selling in cryptocurrency mining wares and this global trade has drastically
+driven up the price and lowered the supply of high end graphics processing
+hardware. Cryptocurrency's volatility has led to the usual economics during
+speculative bubbles. bitcoin has created a veritable arms race of mining
+equipment which attempts to optimize hashes per watt. This created an enormous
+network of data centers around the world all clustered around areas of cheap
+power where the input capital per watt can yield an optimal return on
+investment.  Regions such as Siberia in Russia, Texas in United States, and
+Xinjiang in China have seen upticks in cryptocurrency mining activity due to
+their climates proximity to cheap fossil fuel power.
+
+\index{United States}
+\index{Siberia}
+\index{China!Xinjiang}
+
+However the environmental impact of all this is simply that we are drawing more
+power from the grid, burning more fossil fuels for the purpose of maintaining
+this cryptocurrency network and lining the pockets of cryptocurrency miners. For
+the bitcoin network which may have only 5\% of activity corresponding to
+economic transactions \cite{vigna2019most} , this would result in a truly
+staggering amount of economic and environmental waste if we compute the amount
+of carbon emissions required to sustain this entire scheme.
+
+Since the statistics involved in the proof of work system are readily
+quantifiable it is possible to estimate the amount of energy required to
+sustain the bitcoin network. de Vries et al. estimates that the bitcoin
+network consumes 87.1 tWH (terawatt hours) of electrical energy annually
+as of September 30, 2019. \cite{de2020bitcoin}
+
+\begin{infobox}
+ \textbf{ Bitcoin consumes nation-state levels of energy to process a minuscule
+  amount of transactions considerably slower than other method.}
+\end{infobox}
+
+This amount of wasted energy on bitcoin is comparable to the energy consumption
+of the entire nation of Argentina, a country of 50 million people. In his paper
+de Vries also estimates the network has doubled its electricity consumption
+between the 2018 and 2019 period. This figure represents 43\% or close to half
+of the current entire global data centre electricity across the entire IT
+industry as estimated by the International Energy Agency.
+\cite{international2019key}
+
+For a comparison with the traditional IT and banking sectors, the Visa
+network processed 111.2 billion transactions in 2016. An internal audit
+of the company reported its data centers 674,922 gigajoules, which
+during the course of the year amounts to 21.4 megawatts ($10^6$ watts). All
+of Google's data centers globally used an annual 5.7 terawatts ($10^{12}$
+watts). This includes operations which provide Google search and video
+streaming of YouTube to everyone on the internet.
+
+The bitcoin network consumes more power than then all of the data centres of
+Amazon, Microsoft, Facebook, Netflix, Google and Microsot put together.
+
+\section{Environmental Horrors}
+
+The per transaction costs of bitcoin is an even more alarming statistic.  The
+transaction statistics from aggregated chain data indicates the bitcoin network
+is performing 326,140 transactions per day or 119,041,100 transactions per year.
+The per transaction energy cost is then 731.7 kWH, or equivalently the annual
+power consumption of 2 American households. In comparison, the Visa network can
+perform 100,000 transactions for 151 kWH and a single transaction takes 0.002
+kWH.  \footnote{A time of writing the bitcoin network was performing 359,405
+transactions per day.}
+
+The yearly carbon output of this energy consumption is quantifiable as a
+percentage of power derived from fossil fuel emissions, and the bitcoin
+network is estimated to annually emit 51.9 megaton of carbon dioxide.
+A single bitcoin transaction alone produces 270 kg of CO2.
+\cite{goodkind2020cryptodamages, de2020bitcoin}
+
+In addition to the carbon waste output, the network itself requires a constant
+replacement of hardware and produces a constant stream of waste from broken and
+exhausted components. \cite{DEVRIES2021105901} A substantial new change to the software protocol of a
+cryptocurrency network may invalidate the previous purchases and require a
+complete overhaul and repurchasing of all global mining hardware, especially
+dedicated ASIC miners. The network produces 11,000,000 kilograms of electronic
+waste annually or 96 grams of electronic waste per transaction. This is the
+equivalent annual e-waste as several small countries and equivalent to 482,456
+people living at German standard of 22.8 kg of e-waste per person/year.
+Approximately 98\% of bitcoin mining equipment will become obsolete before
+returning any value. \cite{peplow2019}
+
+\index{ASIC}
+\index{e-waste}
+\index{Germany}
+
+Bitcoin is a single network among hundreds which use similarly wasteful
+proof-of-work models. It is difficult computation to estimate the global energy
+cost and CO2 emissions across the entire cryptocurrency sector, but the total
+sum of hundreds of proof-of-work currencies could conservatively be 50\% on top
+of bitcoin energy requirements.  Gallersd{\"o}rfer et al.~estimates ``bitcoin
+accounts for 2/3 of the total energy consumption, and understudied
+cryptocurrencies represent the remaining 1/3. Therefore, understudied currencies
+add nearly 50\% on top of bitcoin's energy hunger.'' The entire cost in terms of
+health and climate damages caused by the continued operation of these services
+is an alarming number and is deserving of further study and estimation.
+\cite{gallersdorfer2020energy, de2019renewable}
+
+\index{proof-of-work}
+
+The question whether bitcoin has a legitimate claim on any of society's
+resources is not one that has a scientific answer, it is fundamentally
+an ethical question. There are many activities where humans burn massive
+amounts of fossil fuels for activities which are for entertainment or
+serve no economic purpose. For example, Americans burn 6.6 tWH annually
+for holiday lightning. The question of whether we should sustain a
+perpetually wasteful activity in perpetuity is a question the software
+industry must ask.
+
+The answers that have come outiside of the tech industry have raised some
+alarming extrapolations from current trends.  In an environmental study Mora et
+al.~estimate that ``Bitcoin emissions alone could push global warming above 2
+°C'' \cite{mora2018bitcoin} and Goodkind et al.~suggests that
+\cite{goodkind2020cryptodamages}:
+
+\begin{quote}
+Each \$1 of bitcoin value created was
+responsible for \$0.49 in health and climate damages in the US and
+\$0.37 in China
+\end{quote}
+
+Climate change is a runaway phenomenon that may pose an existential threat to
+human civilization. Massive CO2 emissions today are a debit on the quality of
+life for future generations. The problem of cryptocurrency mining is one that
+needs to be addressed within a framework that takes into account the quality of
+life for future generations, and in terms of a cost-benefits analysis of running
+a network which is consuming nation state levels of power and whose purpose is
+overwhelmingly speculative gambling.

@@ -1,4 +1,6 @@
-# popping-the-crypto-bubble
+# Popping the Crypto Bubble
+
+Progress: 🔲⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹ (1/28)
 
 - [ ] Introduction
 - [ ] History of Crypto
