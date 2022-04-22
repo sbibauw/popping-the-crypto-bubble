@@ -7,22 +7,23 @@
 7. Economic Problems
 8. Environmental Problems
 9. Ethical Problems
-10. Crypto Exchanges
-11. Journalism
-12. Fraud
-13. ICOs
-14. Digital Gold         
-15. The Cult of Crypto
-16. Stablecoins
-17. Smart contracts
-18. DeFi
-19. Ransomware 
-20. Blockchainism
-21. NFTs
-22. Diem / Libra
-23. Central Bank Digital Currencies
-24. Financial Nihilism
-25. Financial Populism
-26. Regulation
-27. Historical Market Bubbles
-28. Conclusion
+10. Valuing of Crypto Assets
+11. Crypto Exchanges
+12. Journalism
+13. Fraud
+14. ICOs
+15. Digital Gold         
+16. The Cult of Crypto
+17. Stablecoins
+18. Smart contracts
+19. DeFi
+20. Ransomware 
+21. Blockchainism
+22. NFTs
+23. Diem / Libra
+24. Central Bank Digital Currencies
+25. Financial Nihilism
+26. Financial Populism
+27. Regulation
+28. Historical Market Bubbles
+29. Conclusion

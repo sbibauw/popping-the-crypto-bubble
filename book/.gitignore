@@ -281,3 +281,8 @@ TSWLatexianTemp*
 
 # Output
 out
+
+# Private
+book.tex
+kindle.tex
+Makefile
