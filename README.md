@@ -1,8 +1,8 @@
 # Popping the Crypto Bubble
 
-Market Manias, Populism, and Techno-solutionism
+Market Manias, Phony Populism, and Techno-solutionism
 
-Progress: 🔲🔲⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹ (2/28)
+Progress: 🔲🔲🔲⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹ (3/28)
 
 - [ ] Introduction
 - [ ] History of Crypto
