@@ -1,6 +1,8 @@
 # Popping the Crypto Bubble
 
-Progress: 🔲⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹ (1/28)
+Market Manias, Populism, and Techno-solutionism
+
+Progress: 🔲🔲⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹ (2/28)
 
 - [ ] Introduction
 - [ ] History of Crypto
@@ -19,7 +21,7 @@ Progress: 🔲⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹
 - [ ] Digital Gold
 - [ ] The Cult of Crypto
 - [ ] Stablecoins
-- [ ] Smart contracts
+- [x] Smart contracts
 - [ ] DeFi
 - [ ] Ransomware
 - [ ] Blockchainism

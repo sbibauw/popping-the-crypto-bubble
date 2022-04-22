@@ -1,0 +1,345 @@
+\chapter{Smart Contracts}
+
+\index{smart contracts}
+
+Smart contracts are a curiously named term that has sparked a great deal of
+interest off the confusion of its namesake. Like many blockchain terms, a smart
+contract is a semantically meaningless term in the larger corpus of discussion,
+and its usage has been defined to mean everything from the universal set of all
+computer programs to a particular set of computer programs running on particular
+software platforms.
+
+A contract in Common Law jurisdictions is an interaction between two parties
+recognized by the law where an offer and an acceptance are established around a
+shared set of terms. Both the offer and acceptance can take many forms,
+including actions such as signatures, the production of shared documents, or
+digital interaction. The contract terms are interpreted in a given governing
+law, which defines the environment in which the contract's terms are valid and
+gives a mechanism to settle disputes. The basis of this system is the
+interpretation of legal terms in the minds of judges and magistrates, which
+interpret the law in a historical and situational context. Smart contracts have
+nothing to do with this concept.
+
+If there is one takeaway before we delve into the technical details, it is a
+simple observation that the term is deeply flawed. However, the technology has
+benefited from convenience in confusion around the name; indeed, smart contracts
+are a contradiction in terms as they are neither smart nor contracts.
+
+\begin{infobox}
+  \textbf{
+    Smart contracts have absolutely nothing to do with legal contracts.
+  }
+\end{infobox}
+
+\section{Not Contracts}
+
+To unpack this term, we will refer to two different types of programs
+colloquially called smart contracts: bitcoin scripts and solidity scripts.
+Bitcoin scripts are a very simple mechanism for including small units of logic
+alongside bitcoin transactions. These can be used to orchestrate the flow of
+transactions according to a minimal set of logical operations. The script itself
+is interpreted in a simple "computer" called a stack evaluator, a set of simple
+instructions evaluated left-to-right that can view and manipulate a mutable list
+of values. Many programming languages such as Python and Ruby are based on stack
+virtual machines; however, bitcoin scripts are intentionally minimal for
+performance reasons and to not overcomplicate the protocol. For instance, one
+can express a simple program that locks a set of bitcoin values until a given
+time in the future, but one cannot write a calculator or chess engine inside of
+a bitcoin script. In computer science terms, the bitcoin script is not
+Turing-complete since it is a language that is not capable of expressing general
+computation and has no looping operation or means to evaluate terms recursively.
+Not being Turing-complete drastically restricts the set of possible programs
+that can be expressed in the language. In practice, bitcoin scripts are not
+widely used, and there is a class of about five commonly used tasks for which
+the logic is simple enough. An example bitcoin script looks like the following:
+
+\begin{quote}
+\begin{verbatim}
+OP_DUP
+OP_HASH160
+62e907b15cbf27d5425399ebf6f0fb50ebb88f18
+OP_EQUALVERIFY
+OP_CHECKSIG
+\end{verbatim}
+\end{quote}
+
+\index{bitcoin!script}
+
+The Ethereum network has taken a different approach to its protocol and embedded
+an entire virtual machine (called the EVM) inside the evaluation of Ether
+transactions. This method for achieving this executable blockchain logic was
+outlined in the 2014 ethereum whitepaper. The EVM is a virtual machine that is
+also stack-based but provides more primitives and operations to manipulate stack
+data. The ethereum virtual machine serves as a target for higher-level languages
+(Solidity, Viper, etc.), which take human-readable source code and translate it
+into a set of machine-readable EVM instructions. These instructions are encoded
+as numerical codes inside ethereum transactions sent to the public network. The
+primary language that ethereum contracts are written in is Solidity, a
+blockchain-specific scripting language most comparable to the standard web
+scripting language Javascript.
+
+\index{Javascript}
+\index{ethereum}
+
+Solidity logic can mediate the exchange of ethereum tokens according to
+arbitrarily complex logic, including arithmetic, mathematical operations,
+logical control flow, and manipulation of simple data structures such as
+associative maps and lists. In a suppositional sense, Solidity, the pure
+language, is Turing-complete; however, in practice, it has a restriction on its
+runtime imposed by its runtime. This restriction is known as bounded evaluation,
+which assigns a specific cost to each operation which incurs an economic cost to
+the issuer of the transaction known as gas. This gas is capped per transaction
+and effectively prevents infinite-looping events while evaluating a block of
+transactions. This restriction prevents the network from being globally stalled
+while evaluating a transaction's potentially arbitrarily complex program logic.
+
+\begin{quote}
+\begin{verbatim}
+pragma solidity >=0.4.22 <0.8.0;
+
+contract OwnedToken {
+    TokenCreator creator;
+    address owner;
+    bytes32 name;
+
+    constructor(bytes32 _name) {
+        owner = msg.sender;
+        creator = TokenCreator(msg.sender);
+        name = _name;
+    }
+
+    function changeName(bytes32 newName) public {
+        if (msg.sender == address(creator))
+            name = newName;
+    }
+
+    function transfer(address newOwner) public {
+        if (creator.isTokenTransferOK(owner, newOwner))
+            owner = newOwner;
+    }
+}
+\end{verbatim}
+\end{quote}
+
+\index{Solidity}
+
+Solidity falls out of a previous tradition of open-source programming tools that
+have taken a "move fast and break things" approach to development philosophy,
+prioritizing time to develop over theoretical concerns of semantics,
+correctness, or best practices of language design. Solidity was meant to appeal
+to the entry-level Javascript developer base, which uses coding practices such
+as copying and pasting from code aggregator sites like Stack Overflow. As a
+result, Solidity code generally has a very high defect count and has resulted in
+a constant stream of high-profile security incidents directly related to coding
+errors. Some studies have put the defect count at 100 per 1000 lines.
+
+A cottage industry has arisen around trying to prevent security flaws related to
+the coding errors in smart contracts. These companies have taken two approaches:
+a technical one in the form of a process known as formal verification and a
+heuristic one in which third-party independent contractors audit code to attest
+to the integrity of the contract's logic before it goes live. The formal
+verification approach builds on a branch of computer science known as
+programming language theory which attempts to model the behavior of programs by
+reducing them down to a mathematical description of the values computed by
+individual components.
+
+\index{formal verification}
+
+The degree of engineering required to prove the correctness properties of these
+contracts' logic is expensive, and the return on investment for that level of
+engineering would do little to mitigate the risks when the underlying platform
+itself is unable to be changed. However, it is much easier in practice to
+deceptively market a project as "having formal verification" or "having a code
+audit," as there is very little due diligence done on these projects in the
+first place. In practice, both audits and formal verification approach has thus
+mainly been performative and yielded little success in preventing catastrophes
+in live contracts.
+
+The most catastrophic smart contract was undoubtedly the DAO hack. The DAO was
+an experimental, decentralized autonomous organization that resembled a venture
+fund loosely. A program that would allow users to invest and vote on proposals
+for projects to which the autonomous logic of the contract would issue funds as
+a hypothetical "investment." It was a loose attempt at building what would
+amount to an investment fund on the blockchain. The underlying contract itself
+was deployed and went live, consuming around \$50 million at the then exchange
+rate with Ether cryptocurrency. The contract contained a fundamental software
+bug that allowed an individual hacker to drain DAO accounts into their accounts
+and acquire the entirety of the community's marked investment. This hack
+represented a non-trivial amount of the total Ether in circulation across the
+network and was a major public relations disaster for the network. The community
+controversially decided to roll back the blockchain to a previous state to
+revert the hacker's withdrawal of funds and restore the contract to regular
+operation. \cite{secDao}
+
+\index{DAO}
+
+Among the programming language ecosystem, there is a niche subset of languages
+known as functional languages, which are notable for their applications in
+high-assurance software applications, ones where the correctness of code can be
+proven in more cases. A sizable number of practitioners in the functional
+programming ecosystem have spent efforts looking at the problem of smart
+contract languages. Many proposals and prototypes have been made that would make
+theoretical guarantees of correctness beyond the current state of affairs.
+However, none of these projects have gained any traction or born fruit, as the
+fundamental problem of retrofitting these tools onto existing runtimes and
+training existing practitioners in unfamiliar tools within their profession.
+
+The grandiose promise of smart contracts was for applications that build
+decentralized internet applications called dApps. These dApps would behave like
+existing web and mobile applications but counter interface with the blockchain
+for persistence and consume or transmit cryptocurrency as part of their
+operations. There are endless proposals for ideas like decentralized clones of
+existing services such as Airbnb, Uber, LinkedIn, and nearly every commercially
+successful web application. The implicit assumption of these proposals is that a
+decentralized application would allow the applications to be superior due to
+being run "by the people," independent of corporate governance, and free of
+privacy and data collection problems. Much of the smart contract narrative is
+built around phony populism and the ill-defined idea that there is an upcoming
+third iteration of the internet (a Web 3.0) that will interact with smart
+contracts to provide a new generation of applications. In practice, none of that
+has manifested in any usable form, and the fundamental data throughput
+limitations of blockchain data read and write actions make that vision
+impossible.
+
+In practice, most live smart contracts fall into a limited set of categories:
+gambling, tumblers, NFTs, decentralized exchanges, and crowd sales. The vast
+majority of code running on the public ethereum network falls into one of these
+categories, with a standard set of open-source scripts driving the bulk of the
+contract logic that is evaluated on the network. However, there is a wide
+variety of bespoke scripts associated with different ICO companies and high-risk
+gambling products that are bespoke logic and act independently of existing
+community standards and practices. Looking at ethereum chain explorers and dApp
+listing sites approximates the number of live applications and their taxonomy.
+There are currently 2,917 listed dApps, of which in the top four categories, 17%
+fall into games, 13\% fall into gambling, 10\% fall into finance, and 10\% fall
+into high-risk.
+
+\index{tumbling}
+\index{gambling}
+
+The most common script is an *ERC20* token, a contract that allows users to
+issue custom token crowd sales on top of the ethereum blockchain. These tokens
+were a custom registry that mapped holdings of addresses to their balances of
+the custom token. By transacting with the contract (i.e., offering party), users
+could exchange their ethereum tokens to "buy into" the custom tokens offered at
+a specific value. The total supply of these tokens in any one of these contracts
+was a custom fixed amount, and by interacting with the ERC20 contract, the
+buyers' tokens were instantly liquid and could be exchanged with other users
+according to the rules of the contract. This is the standard mechanism that
+drove the ICO bubble and related speculation, and this token sale contract is
+overwhelmingly the most common use case for smart contracts. Quite commonly,
+these ERC20 tokens were tied to a *SAFT* (Simple Agreement for Tokens), a legal
+contract in US law that mapped owners in the token registry to the purchasers of
+those securities inside the US legal system. This SAFT agreement was
+structurally similar to a SAFE (Simple Agreement for Equity), which companies in
+the US typically use for early startup fundraising to offer equity to venture
+capitalists and early investors.
+
+\index{ERC20}
+\index{SAFT}
+
+Tumblers (such as tornado.cash) are another application of smart contracts which
+allow users who have engaged in darknet transactions to "clean" their money by
+exchanging their dirty tokens with clean tokens through a set of random swaps
+which preserve the value but obscure the provenance. These tumblers use several
+evasion techniques such as random transactions, time-delayed transactions, and
+swaps with other chains with private transactions to return the clean money back
+to the client. In traditional financial services, this would be called a
+criminal activity is known as money laundering. Traditional money custodians and
+money transmitters are typically required to maintain audit logs and prevent
+this form of activity as part of their licenses and regulatory oversight.
+
+\index{money laundering}
+\index{darknet}
+
+Another class of projects is the digital collectibles and digital pets genre.
+One of the most popular is *CryptoKitties*: a game in which users can buy, sell,
+and breed cartoon kittens. The sale of digital cats was responsible for 6.2% of
+all ethereum traffic in 2018. The number of transactions on this one application
+represented a significant fraction of all contract logic and drastically
+congested the global network when many individuals began trading digital cats.
+
+\index{CryptoKitties}
+
+Gambling products overwhelmingly dominate the remaining set of contracts. Aside
+from illegal securities offerings, Gambling is the primary domain for blockchain
+apps. This script allows participants to gamble their tokens in games of chance
+against other blockchain users. There are a variety of so-called dApps
+(distributed applications) which offer lotteries and games in which users stake
+ethereum tokens, and the game makers offer opportunities to play in exchange for
+transaction fees. Some of these games are classical Ponzi schemes in which
+players pay into a pool of tokens, and early investors are paid out from the
+increasing pool of subsequent investors. \cite{pinna2019massive, hartel2019empirical}
+
+The ICO bubble marked a significant increase in the interest in smart contracts
+arising from outlandish claims of how cryptocurrency ventures would
+disintermediate and decentralize everything from the legal profession and
+electricity grid to food supply chains. In reality, we have seen none of these
+visions manifest, and the technology is primitive, architecturally dubious, and
+lacking in any clear applications of benefit to the economy at large. The
+ecosystem of dApps is a veritable wasteland of dead projects, with none having
+more than a few hundred active users at best.
+
+\section{Not Smart}
+
+A smart contract has none of these properties, and its very design to run on an
+unregulated network prevents it from interfacing with external systems in any
+meaningful fashion. This confusion around the namesake of smart contracts has
+been exploited by many parties to sell products and services.
+
+The fundamental limitation of smart contracts is best exemplified by a technical
+limitation referred to as the \textit{oracle problem}. In blockchain systems, there is
+a data boundary between data stored on-chain, referring to data stored natively
+on the blockchain database such as transactions, wallet address, and smart
+contract state. Data that is off-chain colloquially means anything not within
+the blockchain database, such as the public internet, data stored in traditional
+databases, and data feeds for news events or financial markets. The efficacy of
+many applications of smart contracts was predicated upon the ability to query
+events that would occur outside the blockchain network, which would be either
+self-reported or attested to by an authoritative source. This problem poses a
+fundamental contradiction in the theoretical value proposition of decentralized
+dApps; if their operation was run on a decentralized platform, but the core
+mechanism for operation depended on a central authority, this resulted in a
+system that is functionally equivalent to an existing centrally operated
+application. Stated another way, if a blockchain financial product depends on
+the weather or value of the S\&P 500, the smart contract would have to extend its
+trust boundary to the included National Weather Service or a Bloomberg for its
+operation to function. At which point then, this entire setup provides a service
+that is no better or different than running the same program on a centralized
+server.
+
+\index{oracle problem}
+
+Within the domain of permissioned blockchains, the terminology has been co-opted
+to refer to an existing set of tools that would traditionally be called
+\textit{process automation}. In 2018 so-called enterprise "smart contracts" were
+the buzzword du jour for consultants to sell enterprise projects. These
+so-called enterprise smart contracts had very little to do with their
+counterparts in public blockchains and were existing programming tools such as
+Javascript, Java, and Python rebranded or packaged in a way that would
+supposedly impart the "value of the blockchain" through undefined and
+indeterminate means. Indeed one of the popular enterprise blockchain platforms,
+Hyperledger, provides a rather expansive definition of the term:
+\cite{fabric2017hyperledger}
+
+\begin{quote}
+A smart contract can describe an almost infinite array of business use
+cases relating to immutability of data in multi-organizational decision
+making. The job of a smart contract developer is to take an existing
+business process that might govern financial prices or delivery
+conditions, and express it as a smart contract in a programming language
+such as JavaScript, Go, or Java. The legal and technical skills required
+to convert centuries of legal language into programming language is
+increasingly practiced by smart contract auditors.
+\end{quote}
+
+This paragraph is very embodiment of the blockchain meme. It is an extension of
+the terminology to include an "infinite array of business cases" and encompasses
+any computer program that writes to any database is a semantic extension of a
+term to be meaningless. Smart contracts simply are not useful for any real-world
+applications. To the extent that they are used on blockchain networks, they
+provide strictly inferior services or are part of gambling or money laundering
+operations that are forced to use this a flawed system because it is the only
+platform that allows for illicit financing, arbitrage securities regulation, or
+avoids law enforcement.
+\index{blockchain meme}
