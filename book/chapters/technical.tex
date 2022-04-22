@@ -1,108 +1,109 @@
 \chapter{Technical Shortcomings}
 
-The success of an emerging technology is not an inevitability. The history of
-the software industry is like any other discipline of engineering -- full of
-dead ends, false starts and wrong turns. Software is unconstrained by many
-traditional factors however it is ultimately constrained by the economics of its
-applications and the limitations of computer science.
+The success of an emerging technology is not an inevitability, and not all
+technical innovation is unqualifiedly good. The software industry's history is
+like any other engineering discipline -- full of dead ends, false starts, and
+wrong turns. Software is unconstrained by many traditional factors; however, it
+is ultimately constrained by the economics of its applications and the
+limitations of computer science.
 
-The fundamental technical shortcomings of cryptocurrency stem from four
-categories: scalability, privacy, security, and incompatibility with existing
-infrastructure and legal structures.
+The fundamental technical shortcomings of cryptocurrency stem from four major
+categories: scalability, privacy, security, recentralization, and
+incompatibility with existing infrastructure and legal structures.
 
 \section{Scalability}
 
 The bitcoin technical program carries the specific seed of its own destruction
 by virtue of being tied to a political ideology. This ideology opposes any
-technical centralization, and this single fact limited the technical avenues the
+technical centralization, and this single fact limits the technical avenues the
 technology could pursue in scaling. As noted in the second chapter, bitcoin is
 inherently an anarchist project with an anti-state mentality that runs deep
 within its development community. This ideology informed the initial development
 of bitcoin to pursue censorship resistance as a core feature at any cost,
-including performance and transaction throughput. By design the bitcoin network
-should allegedly be immune to payment interdiction or any law enforcement who
-would wish to restrict the movement of funds. To many in the community this is
-the central proposition on which any proposed scaling solutions must conform.
+including performance and transaction throughput. By design, the bitcoin network
+should allegedly be immune to payment interdiction or law enforcement who wishes
+to restrict funds' movement. This guiding principle is the central proposition
+any proposed scaling solutions must conform to to be considered acceptable in
+the cryptocurrency community, but it is also its technical undoing.
 
 \begin{infobox}
- \textbf{Bitcoin does not scale to transaction counts used by normal payment systems.}
+ \textbf{Bitcoin does not scale to transaction counts used by standard payment systems.}
 \end{infobox}
 
 The bitcoin scalability problem arises from the consensus model it uses to
-confirm blocks of pending transactions. In the consensus model the batches of
-transactions that are committed are limited in size and frequency, and tied to a
+confirm blocks of pending transactions. In the consensus model, the batches of
+committed transactions are limited in size and frequency and tied to a
 proof-of-work model in which miners must perform bulk computations to confirm
-and commit the block to the global chain. A bitcoin block is constrained by the
-protocol to be no more than 1MB in size and a single block is committed every 10
-minutes.  For comparison the size of an average 3 minute song encoded in the MP3
-file format is roughly 3.5MB. Doing the arithmetic on the throughput results in
-the shockingly low figure that the bitcoin network is only able to do 3-7
+and commit the block to the global chain. The protocol constrains a bitcoin
+block to be no more than 1MB in size and a single block is committed only every
+10 minutes. For comparison, the size of an average 3-minute song encoded in the
+MP3 file format is roughly 3.5MB. Doing the arithmetic on the throughput results
+in the shockingly low figure that the bitcoin network is only able to do 3-7
 transactions per second.
 
-The transaction throughput of bitcoin is very low by traditional database
-standards. It is a common marketing tactic in the database industry to inflate
-one's benchmarks or use synthetic workloads which advertise inflated write
-speeds for databases. Nevertheless there are mature and open source databases
-such as Postgres and Redis for which we can gather very accurate information
-about their write throughputs.  Postgres is a classical relational SQL database
-and is capable of doing 200 to 300 updates per second, or 12,000 transactions
-per minute. Redis is a key-value store and is capable of doing 110,000 writes
-per second or 6 million transactions per minute. However since all core banking
-solutions use traditional databases as their storage engine, these numbers
-represent a baseline figure throughput that should be stated for base
+The transaction throughput of bitcoin is very low by traditional
+database standards. It is a common marketing tactic in the database industry to
+inflate benchmarks or use synthetic workloads that advertise inflated write
+speeds for databases. Nevertheless, there are mature and open source databases
+such as Microsoft SQL Server, Postgres, and Redis for which we can gather very
+accurate information about their write throughputs.  Postgres is a classical
+relational SQL database and is capable of doing 200 to 300 updates per second,
+or 12,000 transactions per minute. Redis is a key-value store and can do 110,000
+writes per second or 6 million transactions per minute. However, since all core
+banking solutions use traditional databases as their storage engine, these
+numbers represent a baseline figure throughput that should be stated for base
 comparison. \cite{katz_2017}
 
-An appropriate comparison would be the Visa credit card network whose
-self-reported figures are 3,526 transactions per second.  Most credit card
-transactions can be confirmed in less than a minute and the network handles \$11
-trillion dollars of exchange yearly.  Credit cards and contactless payments are
-such a success story for digital finance that they have become a transparent
-part of everyday life that most of us take for granted. The comparison between
-bitcoin and Visa is not a perfect comparison as Visa is able to achieve this
-level of transaction throughput by centralising transaction handling through its
-own servers and has spent thirty years building services to handle this kind of
-load. The slow part of transaction handling is always compliance, ensuring
-parties are solvent and detecting patterns of fraudulent activity. However
-for the advocates proposing that bitcoin is capable of handling retail
-transaction loads on a global scale, this is the definitive benchmark that
-must be reached for technical parity.
+An appropriate comparison would be the Visa credit card network, whose
+self-reported figures are 3,526 transactions per second. Most credit card
+transactions can be confirmed in less than a minute, and the network handles
+\$11 trillion of exchange yearly. Credit cards and contactless payments are such
+a success story for digital finance that they have become a transparent part of
+everyday life that most of us take for granted. The comparison between bitcoin
+and Visa is not perfect, as Visa can achieve this level of transaction
+throughput by centralizing transaction handling through its own servers and has
+spent thirty years building services to handle this kind of load. The slow part
+of transaction handling is always compliance, ensuring parties are solvent, and
+detecting patterns of fraudulent activity. However, for the advocates proposing
+that bitcoin can handle retail transaction loads on a global scale, this is the
+definitive benchmark that must be reached for technical parity.
 
 \index{Visa}
 \index{bitcoin!transaction speed}
 
 \begin{infobox}
  \textbf{
-    There is mistaken conflation between success as a digital currency and
-    success as speculative investment. These two classes of financial products
-    have opposite properties. Currencies require stability and reliability in
-    price.
+    There is a mistaken conflation between success as a digital currency and
+    success as a speculative investment. These two classes of financial
+    products have opposite properties. Currencies require stability and
+    reliability in price.
   }
 \end{infobox}
 
 
 Building these payment processing systems can be viewed through a lens of
-compromise between three factors: scalability, decentralization and security.
-The design choices of bitcoin favour decentralization and security, while making
-a sacrifice in scalability. The database infrastructure behind normal money
-transmitter services are designed to be scalable and secure.
+compromise between three factors: scalability, decentralization, and security.
+The design choices of bitcoin favor decentralization and security while making a
+sacrifice in scalability. The database infrastructure behind standard money
+transmitter services is designed to be scalable and secure.
 
 \index{money transmitter}
 
-The scalability issues of the bitcoin protocol are universally recognized and
-there have been many proposed solutions which alter the protocol itself.
+The scalability issues of the bitcoin protocol are universally recognized, and
+there have been many proposed solutions that alter the protocol itself.
 \cite{hinzen2019proof} Bitcoin development is a collaboration between three
 spheres of influence: the exchanges who onboard users and issue the bulk of
 transactions, the core developers who maintain the official clients and define
-the protocol in software, and the miners who purchase the physical hardware and
-mine blocks. The economic incentives of all of these groups are different and a
-change to the protocol would shift the profit centers for each of the groups.
-For example, while the exchanges would be interested in larger block sizes
-(i.e.~more transactions) the miners (who prioritize fee-per-byte) would have to
-purchase new hardware and receive less in mining rewards for more computational
-work and thus greater electricity cost. This stalemate of incentives has led to
-mass technical sclerosis of the base protocol and a situation in which core
-developers are afraid of major changes to the protocol for fear of upsetting the
-economic order they are profiting from.
+the protocol in software, Furthermore, the miners who purchase the physical
+hardware and mine blocks. The economic incentives of all of these groups are
+different, and a change to the protocol would shift the profit centers for each
+of the groups. For example, while the exchanges would be interested in larger
+block sizes (i.e., more transactions) the miners (who prioritize fee-per-byte)
+would have to purchase new hardware and receive less in mining rewards for more
+computational work and thus more significant electricity cost. This stalemate of
+incentives has led to mass technical sclerosis of the base protocol and a
+situation in which core developers are afraid of major changes to the protocol
+for fear of upsetting the economic order they are profiting from.
 
 \index{miner}
 \index{bitcoin!scalability problem}
@@ -110,79 +111,80 @@ economic order they are profiting from.
 It is a common joke in software development that the answer to any difficult
 technical problem is simply to add another level of indirection to the problem.
 This leads us to our new problem: Lightning Network. Since the base protocol is
-unscalable the seemingly natural solution to adapting this network is to add yet
-another network on top of the bitcoin network. This proposed design of this
+unscalable, the seemingly natural solution to adapting this network is to add
+yet another network on top of the bitcoin network. This proposed design of this
 system would batch settlements between peers into bidirectional state channels.
 These state channels are managed by a smart contract but must be monitored by
 the two parties on both ends to efficiently close the channel when a batch of
-transactions are finalized. This opens a small, but non-zero, time window for
-fraud in this system in which one party will broadcast an old state to the
-contract and is able to extract remaining bitcoin locked in the contract before
-the other party has finalized. The proposed solution is either a central
-registry in which lightning network participants would suffer reputational
-damage for this kind of fraudulent transaction or yet another level of
-indirection known as watchtower contract. That watchtower is another smart
-contract that monitors the first contracts looking for mismatches between the
-main network and the channel states.
+transactions is finalized. This design opens a small but non-zero time window
+for fraud in this system in which one party will broadcast an old state to the
+contract and can extract the remaining bitcoin locked in the contract before the
+other party has finalized. The proposed solution is either a central registry in
+which lightning network participants would suffer reputational damage for this
+kind of fraudulent transaction or yet another level of indirection known as a
+watchtower contract. That watchtower is another smart contract that monitors the
+first contracts looking for mismatches between the main network and the channel
+states.
 
-\index{Lightning network}
+\index{lightning network}
 
 The lightning network itself introduces a whole new set of attack vectors for
 double spends and frauds as outlined in many cybersecurity papers such as the
-``Flood and Loot'' attack \cite{harris2020flood}.  This attack effectively
-allows attackers to do specific bulk attacks on state channels to drain user's
-funds. The lightning network is an experiment and untested approach to scaling
-and progress on this scaling approach has stagnated since 2018. According to
-self-reported lightning network statistics less than 0.001\% of circulating
-bitcoin were being managed by the network and transaction volume has remained
+"Flood and Loot" attack \cite{harris2020flood}. This attack effectively allows
+attackers to make specific bulk attacks on state channels to drain users' funds.
+The lightning network is an experiment and untested approach to scaling, and
+progress on this scaling approach has stagnated since 2018. According to
+self-reported lightning network statistics, less than 0.001\% of circulating
+bitcoin were being managed by the network, and transaction volume has remained
 relatively flat after 2019. No merchants operate with the Lightning network for
 payments and as of today is nothing more than a prototype. There is little
-evidence to support that this scaling even works and would not introduce
+evidence supporting this scaling model even works and would not introduce
 implicit custodial requirements, novel attack vectors, or new mechanisms for
-fraud. The perpetual narrative around the Lightning network is that it has
-always been 18 months away from adoption and has been on this timeline for quite
-some time. In software parlance the term vapourware is used to describe software
-which is perpetually in the process of being developed but not materialises into
-a usable form, the bitcoin lightning network is a vapourware.
+fraud. The perpetual narrative around the Lightning Network is that it has
+always been 18 months away from adoption. Moreover, this narrative is updated
+every 18 months it fails to deliver. In software parlance, the term vapourware
+is used to describe software perpetually in the works of being developed but
+never materializing into a usable form. The bitcoin lightning network is pure
+vapourware.
 
 \begin{infobox}
- \textbf{ Bitcoin transactions are considerably more expensive than any other means of payment.  }
+ \textbf{Bitcoin transactions are considerably more expensive than any other means of payment.}
 \end{infobox}
 
-Outside of the bitcoin network there are similar problems in other
+Outside of the bitcoin network, there are similar problems in other
 cryptocurrencies. The bitcoin meme of technical indirection through Layer 2
-solutions has been translated to other systems and their development
+solutions have been translated to other systems and their development
 philosophies. This perspective views the base protocol as being only a
-settlement layer for larger bulk transfers between parties and that smaller
+settlement layer for larger bulk transfers between parties, and those smaller
 individual payments should be handled by secondary systems with different
 transaction throughputs and consistency guarantees. The ethereum network has
-taken a different set of economic incentives in their initial design and at the
-time of writing this network is still only capable of doing roughly 15
+taken a different set of economic incentives in its initial design, and at the
+time of writing, this network is still only capable of doing roughly 15
 transactions per second. There is a proposed drastic protocol upgrade to this
-network known as ethereum 2.0 which includes a fundamental shift in the
+network known as ethereum 2.0, which includes a fundamental shift in the
 consensus algorithm. This project has been in development for five years and has
-consistently failed to meet all its launch deadlines, and it remains unclear when or
-if this new network will launch. Since this new network would alter the
+consistently failed to meet all its launch deadlines, and it remains unclear
+when or if this new network will launch. Since this new network would alter the
 economics of mining the protocol, it is unclear if there will be community
 consensus between miners and developers that the protocol will go live or
 whether they will see the same economic stalemate and sclerosis that the bitcoin
-ecosystem observes. This rollout may result in fork of the ethereum chain and a
-fracturing of the ecosystem along its incentive structure divisions.
+ecosystem observes. This rollout may result in a fork of the ethereum chain and
+a fracturing of the ecosystem and its incentive structure divisions.
 
 \begin{infobox}
  \textbf{ Because of slow transaction speeds, cryptocurrencies are almost
   impossible to use for legitimate commercial transactions. }
 \end{infobox}
 
-The wider cryptocurrency community has seen a zoo of alternative proposed
-scaling solutions, these proposals going by technical names such as: sidechains,
-sharding, DAG networks, zero knowledge rollups and a variety of proprietary
-solutions which make miraculous transaction throughput claims.  However the
+The broader cryptocurrency community has seen a zoo of alternative proposed
+scaling solutions, these proposals going by technical names such as sidechains,
+sharding, DAG networks, zero-knowledge rollups and a variety of proprietary
+solutions which make miraculous transaction throughput claims. However, the
 tested Nakamoto consensus remains the dominant technology. At the time of
-writing there is little empirical evidence for the viability of new scaling
+writing, there is little empirical evidence for the viability of new scaling
 solutions as evidenced by live deployments with active users. Central to the
 cryptocurrency ideology is a belief that this technical problem must be
-tractable, and for many users it is a matter of faith that a future
+tractable, and for many users, it is a matter of faith that a future
 decentralized network can scale to Visa levels while maintaining censorship
 resistance and without centralization. Independent of this faith, the
 fundamental reality is that cryptocurrency currently does not scale and cannot
@@ -192,17 +194,17 @@ adapt itself to fit the existing realities of how the world transacts.
 
 \index{privacy}
 
-Bitcoin wallet addresses are a global unique addressing system that is derived
-from the use of hash functions. In a nutshell a bitcoin wallet address is
-generated from an elliptic curve private key which is a unique number generated
-randomly when a bitcoin wallet is created. This number is inconceivably large by
-everday standards and will have hundreds of digits. If generated by a proper
-random number generator the probability of that specific set of digits ever
-being generated again during the lifetime of the universe is infinitesimally
-small. This number satisfies the necessary properties of being a good secret
-value which the user holds private and uses to control access to their funds.
-There are $21^{60}$ total possible addresses in the bitcoin protocol. An example
-wallet address:
+Bitcoin wallet addresses are a unique global addressing system derived from the
+use of hash functions. In a nutshell, a bitcoin wallet address is generated from
+an elliptic curve private key which is a unique number generated randomly when a
+bitcoin wallet is created. This number is inconceivably large by everyday
+standards and will have hundreds of digits. If generated by a proper random
+number generator, the probability of that specific set of digits ever being
+generated again during the universe's lifetime is infinitesimally small. This
+number satisfies the necessary properties of being a good secret value that the
+user holds private and uses to control access to their funds.  There are
+$21^{60}$ total possible addresses in the bitcoin protocol. An example wallet
+address:
 
 $$
 \texttt{1A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNa}
@@ -210,67 +212,64 @@ $$
 
 \index{bitcoin!wallet}
 
-The public address generated associated with a wallet is encoded in a format in
-which uppercase and lowercase letters stand for numerical values. This sequence
+The public address generated associated with a wallet is encoded in a format
+where uppercase and lowercase letters stand for numerical values. This sequence
 of letters and numbers uniquely identifies the endpoint for other users to send
 funds to and can be shared publicly in textual format or in a graphical format
-such as QR code. However no information about the user is contained within this
-representation, from first assumptions the number is anonymous. In the normal
-banking system a coding known as IBAN (International Bank Account Number) is the
-standard numbering system used to identify accounts and their associated
-financial institutions. When issuing an international wire transfer a bank
-account will ask for the receiving IBAN number as part of the transfer.  This
-number is then mapped internally to the account holders account and is stored
+such as a QR code. However, no information about the user is contained within
+this representation. From base assumptions, the number is essentially anonymous.
+In the traditional banking system, a coding known as IBAN (International Bank
+Account Number) is the standard numbering system used to identify accounts and
+associated financial institutions. When issuing an international wire transfer,
+a bank account will ask for the receiving IBAN as part of the transfer. This
+number is then mapped internally to the account holder's account and is stored
 within the bank's core banking software and routing system.
 
-A bitcoin address is however not fully anonymous. The bitcoin ledger
-itself is a fully public list of transactions that have ever occurred
-since the inception of the network. It contains the very first
-transactions allegedly by Satoshi all the way to the most recent
-transactions conducted in the last 10 minutes. The entire provenance of
-every bitcoin can be traced back to its creation and through every
-address it has passed through.
+A bitcoin address is, however, not fully anonymous. The bitcoin ledger itself is
+a fully public list of transactions that have ever occurred since the network's
+inception. It contains the very first transactions allegedly by Satoshi to the
+most recent transactions conducted in the last 10 minutes. The full provenance
+of a bitcoin can be traced back to its creation and through every address it
+passed through.
 
-This feature means that while accounts are anonymous, the global
-transaction data can be used to infer specific properties about when,
-with whom, and in what amounts an address is transacting with. This kind
-of information is traditionally called metadata. For instance metadata
-about your text messaging habits may not contain the direct messages you
-send. However given a sufficiently large sample size it is possible to
-deduce a person's social network, their partner, and coworkers from the
-frequency and timing of messages. Likewise a great deal of information
-can be deduced from tracing the provenance of a bitcoin address and thus
-bitcoin addresses are not fully anonymous but partially anonymous or
+This feature means that while accounts are anonymous, the global transaction
+data can be used to infer specific properties about when, with whom, and in what
+amounts an address is transacting. This kind of information is traditionally
+called metadata. For instance, metadata about your text messaging habits may not
+contain the direct messages you send. However, given sufficiently large sample
+size, it is possible to deduce a person's social network, their life partner,
+and coworkers from the frequency and timing of messages. Likewise, a great deal
+of information can be deduced from tracing the provenance of a bitcoin address,
+and thus bitcoin addresses are not entirely anonymous but partially anonymous or
 \textit{pseudonymous}.
 
 \index{pseudonymous}
 
-The tracking and tracing of bitcoin involved in criminal activities has
-emerged as a common practice domain in law enforcement and emerging
-companies like ChainAnalysis have been able to deduce quite a bit of
-implied information simply from public information. Unlike with bank
-accounts, law enforcement does not require a
-subpoena of public information for an ongoing investigation. Notoriously
-many users of darknet services such as the Silk Road were caught because
-of a misunderstanding about the transparency of the bitcoin ledger used
+The tracking and tracing of bitcoin involved in criminal activities has emerged
+as a standard practice domain in law enforcement and emerging companies like
+ChainAnalysis have been able to deduce quite a bit of implied information simply
+from public information. Unlike with bank accounts, law enforcement, does not
+require a subpoena of public information for an ongoing investigation.
+Notoriously many users of darknet services such as the Silk Road were caught
+because of a misunderstanding about the transparency of the bitcoin ledger used
 by these actors.
 
 \index{Silk Road}
 \index{darknet}
 
-The process of acquiring bitcoin has always had a bootstrapping problem for new
-users. In the early days of the protocol one could simply use a home computer to
-mine small amounts by devoting spare CPU cycles to generate small amounts.
-However for the last nine years this has been economically unviable. The
-traditional onramp these days is to go through a domestic exchange or one of the
-offshore services. In the case of exchanges domiciled in the United States or in
-Europe the onboarding process for accounts requires the account holder to
-present a government issued identification and proof of address. This is similar
+Acquiring bitcoin has always had a bootstrapping problem for new users. In the
+early days of the protocol, one could use a home computer to mine small amounts
+by devoting spare CPU cycles to generate small amounts. However, for the last
+nine years, this has been economically unviable. These days, the traditional
+onramp is to go through a domestic exchange or one of the offshore services. In
+the case of exchanges domiciled in the United States or in Europe, the
+onboarding process for accounts requires the account holder to present a
+government-issued identification and proof of address. This process is similar
 to opening a bank account and provides a mechanism for the institution to
 contact you and alert law enforcement of any suspicious or criminal activity
 associated with the account opened. This is a legal requirement known as
-\textit{Know Your Customer} (KYC) and is the legal requirement to maintain an
-audit log of account holder personal information and account activity.
+\textit{Know Your Customer} or \textit{KYC} is the legal requirement to maintain
+an audit log of the account holder's personal information and account activity.
 
 \index{KYC}
 \index{United States}
@@ -279,262 +278,250 @@ audit log of account holder personal information and account activity.
 Since the exchanges themselves operate accounts with massive inflows and
 outflows of transactions, their wallet accounts are massive hubs of activity
 that can easily be observed in the global ledger. If the exchanges are operating
-in a compliant manner then every transaction they process should internally be
+in a compliant manner, then every transaction they process should internally be
 mapped to metadata about the account holders and their respective information.
-In the case where an account was associated with criminal activity then law
-enforcement could subpoena the exchange and demand the information required to
-trace the account back to an individual. This information chasing through
-account metadata is the mechanism by which money laundering and wire fraud cases
-can be prosecuted.
+If an account was associated with criminal activity, law enforcement could
+subpoena the exchange and demand the information required to trace the account
+back to an individual. This information chasing through account metadata is the
+mechanism by which money laundering and wire fraud cases can be prosecuted.
 
 \index{money laundering}
 
-This is in contrast to how the traditional banking system works, where
-bank secrecy laws are a central part of the obligation between a bank
-and its customers. Normally banks cannot use the transactions flows of
-their customers as part of their investments or share this information
-with other parties unless required to by the courts. Bank transactions
-are required to be secure, private, and generally confidential
-information. When a wire transfer is issued by a company whose corporate
-account is at HSBC in London to Morgan Stanely in New York City, the
-metadata contained within that transaction could contain commercially
-sensitive information. For example if a British company is sending large
-amounts of funds to a newly created American division it may indicate
-the intent for the company to expand into the American market. There are
-any number of cases where the constellation of transactions between
-known entities could be used to deduce confidential information about
-the parties. This however poses an existential question about the
-efficacy of cryptocurrency networks as an international payment system
-if pseudonymous accounts leak information.
+This is in contrast to how the traditional banking system works, where bank
+secrecy laws are a central part of the obligation between a bank and its
+customers. Banks cannot use the transaction flows of their customers as part of
+their investments or share this information with other parties unless required
+by the courts. Bank transactions are required to be secure, private, and
+generally confidential information. When a wire transfer is issued by a company
+whose corporate account is at HSBC in London to Morgan Stanely in New York City,
+the metadata contained within that transaction could contain commercially
+sensitive information. For example, if a British company is sending large
+amounts of funds to a newly created American division, it may indicate the
+intent for the company to expand into the American market. There are cases where
+the constellation of transactions between known entities could be used to deduce
+confidential information about the parties. However, this fact poses an
+existential question about the efficacy of cryptocurrency networks as an
+international payment system if pseudonymous accounts leak information.
 
-A retail bank account held by individuals is usually a simple structure which
-infrequently collects deposits (payroll, etc) and frequently issues small debits
-for everyday activities (groceries, rent, etc).  Corporate banking, especially
-for large multinational corporations, can be quite complex and span a great
-number of accounts and institutions.
+A retail bank account held by individuals is usually a simple structure
+periodically collects deposits from an employer and frequent small debits for
+everyday activities such as groceries, rent, and buying coffee.  Corporate
+banking, especially for large multinational corporations, can be quite complex
+and span a significant number of accounts and institutions.
 
-However a corporation that wanted to transact in cryptocurrency would
-have to address the fundamental issue that inflows and outflows from
-their accounts are commercially sensitive information. The amount of
-money that a corporate pays in payroll correlates with staffing and
-their operating expenses in specific regions and divisions in their
-company. The accounts receivable correlates with invoices it collects
-and its commercial interactions with its clients and its lines of
-business. Public metadata of any of these transactions is deeply private
-information that is usually some of the most protected information
-inside of a corporation. It is usually only shared with auditors and its
-direct banking relationships. Both of these parties are professionally
-and legally bound to confidentiality. A company electing to transact in
-cryptocurrency would leak confidential information like a sieve by
-choosing this public mode of payment.
+However, a corporation that wanted to transact in cryptocurrency would have to
+address the fundamental issue that inflows and outflows from their accounts are
+commercially sensitive information. The amount of money that a corporation pays
+in payroll correlates with staffing and their operating expenses in specific
+regions and divisions in the company. The accounts receivable correlates with
+invoices it collects, its commercial interactions with its clients, and its
+lines of business. Public metadata of any of these transactions is intensely
+private information that is usually some of the most protected information
+inside a corporation. It is usually only shared with auditors and its direct
+banking relationships. Both of these parties are professionally and legally
+bound to confidentiality. A company electing to transact in cryptocurrency would
+leak confidential information like a sieve by choosing this public mode of
+payment.
 
 The technical answer that one might propose to this problem is that the
 corporate should create a network of wallets and shuffle the payments between
 the wallets in random amounts and times to obscure the provenance of funds. This
 solution is needlessly complicated for a traditional corporate treasurer who
-shouldn't perform this level of financial obfuscation and needless overhead for
-their normal daily activities. For cryptocurrency to pose any value to the
-commercial banking sector this question requires a good answer.
+should not perform this level of financial obfuscation and needless overhead for
+their normal daily activities. This solution is also indistinguishable from the
+money laundering process used by criminals. For cryptocurrency to pose any value
+to the commercial banking sector, this question requires a good answer.
 
 If we step back, this conundrum begs a more profound question. Why are we making
-what was once a non-problem into a difficult problem. The privacy problem has
-been solved since banking was invented in Florence in the 13th century. A
+what was once a non-problem into a complex problem? Since banking was invented
+in Florence in the 13th century, the privacy problem has been solved. A
 mixed-visibility network with some access to authorities and privacy otherwise
-works very well. What does cryptocurrency offer except to create new problems?
+works very well. What does cryptocurrency offer except creating new problems?
 
 \section{Security}
 
-The common advice around the custodianship of cryptocurrency is that one should
-``be your own bank" and ``if you don't hold your keys, they aren't your
-coins". Both of these idioms related to the cryptocurrency are a \textit{bearer
-instrument}, if one holds the private keys to a set of funds then they are
-effectively in control of the assets. Just as if you physically hold euros or
-pounds in your wallet they are indeed your bills. The problem becomes when these
-funds are held by an exchange account which holds your funds before they
-withdraw. These exchanges are not banks, are not legally bound to hold deposits
-and most likely are not in your jurisdiction. Most cryptocurrency exchanges
-provide no legal recourse for lost funds and the funds held are not insured
-under any deposit insurance scheme.
+The standard advice around the custodianship of cryptocurrency is that one
+should "be your own bank" and "if you do not hold your keys, they are not your
+coins". These idioms are related to the fact that cryptocurrency is a
+\textit{bearer instrument}, and if one holds the private keys to a set of funds,
+they are effectively in control of the assets, just as if one physically held
+euros or dollars in a wallet. The problem becomes when these funds are held by
+an exchange account which holds funds before they withdraw. These exchanges are
+not banks, are not legally bound to hold deposits, and most likely are not
+colocated in the customer's jurisdiction. Most cryptocurrency exchanges provide
+no legal recourse for lost funds, and the funds held are not insured under any
+deposit insurance scheme.
 
 \begin{infobox}
  \textbf{Lost private keys account have resulted in 20\% of the supply of
   bitcoins being irretrievably lost.}
 \end{infobox}
 
-In addition these exchanges are some of the most targeted entities on the planet
-for hackers. In 2019 twelve major exchanges were hacked and \$292 million
+In addition, these exchanges are some of the most targeted entities on the
+planet for hackers. In 2019 twelve major exchanges were hacked and \$292 million
 equivalent was stolen in these attacks. These events have only increased in
 severity and frequency over time and in conjunction with bubble economics
 involved.
 
-While some best practices can mitigate this risk, the fundamental design
-of bitcoin-style systems is that an end user is responsible for their
-own keys and wallets by safeguarding their cryptographic secrets. This
-can be done through several strategies. So-called cold wallets are
-wallet keys that are stored in physical objects such as paper and not
-connected to electronic devices. Other systems such as hardware wallets
-allow users to secure and encrypt their keys on a dedicated hardware
-device.
+While some best practices can mitigate this risk, the fundamental design of
+bitcoin-style systems is that end-user is responsible for their own keys and
+wallets by safeguarding their cryptographic secrets. This can be done through
+several strategies. So-called cold wallets are wallet keys stored in physical
+objects such as paper and not connected to electronic devices. Other systems
+such as hardware wallets allow users to secure and encrypt their keys on a
+dedicated hardware device.
 
-Cybersecurity is one of the biggest problems of our era and companies with the
-large information security budgets and dedicated teams regularly fail. A system
-which requires every depositor to have the same level of security as a chief
-information security officer and constantly be aware of threat vectors and
-potential attacks on your keys is an enormous cognitive overhead. At face value
-this seems like an unnecessary burden on an average user who simply wants to
-hold funds and be protected against fraud in their daily transactions. Providing
-your own banking-level information security is extremely hard.
+Cybersecurity is one of our era's biggest problems, and companies with
+significant information security budgets and dedicated teams regularly fail. A
+system that requires every depositor to have the same level of security as a
+chief information security officer and constantly be aware of threat vectors and
+potential attacks on key storage is an enormous cognitive overhead. At face
+value, this seems like an unnecessary burden on an average user who simply wants
+to hold funds and be protected against fraud in their daily transactions. The
+ask of individuals to supply their own banking institution-level information
+security is highly unreasonable.
 
-In the course of human life many situations occur which require third
-parties to be able to access or reset our accounts. In the simple case
-if one forgets a PIN or loses a credit there is a simple mechanism by
-which one can go to the banking branch, prove their identity, and
-restore access to their funds. In a more extreme case of an untimely
-death a person's funds will be passed along to their spouse or children
-through inheritance and wills. The successors can petition the bank for
-access to the funds by presenting a death certificate and gaining
-control of the deceased accounts. Being your own bank makes both of
-these cases either impossible or needlessly complex. The human mind is
-also fragile and subject to decay, mental disorders and memory loss. If
-one forgets the passwords to their hardware wallet or it is physically
-destroyed they will lose access to their accounts. This has already
-occurred to even some of the most sophisticated investors. This could be
-mitigated by an elaborate setup of data backups, safety deposit boxes or
-multiparty wallet setups but these technical solutions are again an
-unnecessary burden of complexity for most users.
+In the course of human life, many situations occur which require third parties
+to be able to access or reset our accounts. If one forgets a PIN or loses a
+credit card, there is a simple mechanism by which one can go to the banking
+branch, prove their identity, and restore access to their funds. In a more
+extreme case of an untimely death, a person's funds will be passed along to
+their spouse or children through inheritance and wills. The successors can
+petition the bank for access to the funds by presenting a death certificate and
+gaining control of the deceased accounts. Being one's own bank makes both cases
+either impossible or needlessly complex. The human mind is fragile and subject
+to decay, mental disorders, and memory loss. If one forgets the passwords to
+their hardware wallet or is physically destroyed, they will lose access to their
+accounts. These events have already occurred to even some of the most
+sophisticated investors. An elaborate setup of data backups could mitigate this,
+safety deposit boxes or multiparty wallet setups, but these technical solutions
+are an unnecessary complexity burden for most users.
 
-There are many news stories of ransom, kidnapping, and murder of holders of
-cryptocurrency assets who attempted to personally safeguard their wallets. In
-cybersecurity the term rubber-hose cryptanalysis refers satirically to the
-extraction of cryptographic secrets from a person by coercion or torture. A
-digital attack vector is simply unnecessary if criminals could simply extract
-the keys by kidnapping and torturing the owner, and then laundering the funds
-from anywhere in the world.
+There are many news stories of ransom, kidnapping, and murder of crypto asset
+holders who attempted to safeguard their wallets personally. In cybersecurity,
+the term rubber-hose cryptanalysis satirically refers to extracting
+cryptographic secrets from a person by coercion or torture. A digital attack
+vector is unnecessary if criminals could extract the keys by kidnapping and
+torturing the owner and then laundering the funds from anywhere in the world.
 
-Of course the natural solution to this would simply be that most users shouldn't
-be their own bank, instead they should use a ``cryptobank'' which holds their
-funds and provides them access. However this ultimately is just recreating the
-same centralised authority system which cryptocurrency advocates attempted to
+Of course, the natural solution to this would simply be that most users should
+not be their own bank; instead, they should use a "cryptobank" which holds their
+funds and provides them access. However, this ultimately is just recreating the
+same centralized authority system which cryptocurrency advocates attempted to
 replace. Providing cryptocurrency security for the masses either introduces more
-social problems for which the technology has no answer, or ultimately results in
-a centralization which undermines its own ideological goals. After all we
-already have banks and payment systems that already work.
+social problems the technology has no answer to or results in a recentralization
+that undermines its own ideological goals. After all, we already have
+centralized banks and existing payment systems that work just fine.
 
 \section{Compliance}
 
-The fundamental reality of international commerce is that the management
-of money has been vital to a nation's sovereignty and its ability to
-manage it's economic growth and security. The movement, storage and
-handling of money is a regulated activity and most countries have
-regulations on the international movement of funds. Showing up at an
-airport in Berlin with undeclared cash in excess of €10,000 will land
-one in quite a bit of trouble. If the value proposition of
-cryptocurrency is international money movement or extranational stores
-of value then the technology will have to conform to existing
-regulations at entry points and exit points.
+The fundamental reality of international commerce is that money management has
+been vital to a nation's sovereignty and its ability to manage its economic
+growth and security. The movement, storage, and handling of money are regulated,
+and most countries have laws on the international movement of funds. Showing up
+at an airport in Berlin with undeclared cash above €10,000 will land one in
+quite a bit of trouble. If the value proposition of cryptocurrency is
+international money movement or extranational stores of value, then the
+technology will have to conform to existing regulations at entry points and exit
+points.
 
-As a point of reference it is helpful to consider how money transfers currently
+As a point of reference, it is helpful to consider how money transfers currently
 work. Nations with advanced economies will have a domestic settlement system
-which allows banks within a regulatory regime to quickly transfer funds between
-entities. The United Kingdom has FasterPayments, Australia has BPAY, and the
+that allows banks within a regulatory regime to transfer funds between entities
+quickly. The United Kingdom has FasterPayments, Australia has BPAY, and the
 United States has CHIPS (Clearing House Interbank Payments System). These
 systems act as netting engines between the banks where trades are netted against
-each other instead of the full amount of all trades being cleared on every
-transaction. A trade goes through two steps. The first is \textit{clearing}
-which is the confirmation of information between the payer and payee and the
-second is \textit{settlement} which is the actual transfer of funds. For
-financial institutions to transfer funds they will have what is called a
-\textit{vostro account} of the other bank which records the amount of funds held
-by the current bank on behalf of the other. Conversely the other bank will have
-a its nostro account which is an account held by the other bank which holds current
-banks money. Transfers between the banks will be debited and credited in their
-respective vostro accounts thus allowing them to transfer money between each
-other.
+each other instead of the total amount of all trades being cleared on every
+transaction. A trade goes through two steps. The first is *clearing* which is
+the confirmation of information between the payer and payee, and the second is
+*settlement*, which is the actual transfer of funds. For financial institutions
+to transfer funds, they will have what is called a *Vostro account* of the other
+bank, which records the funds held by the current bank on behalf of the other.
+Conversely, the other bank will have its Nostro account, which is an account
+held by the other bank which holds the current bank's money. Transfers between
+the banks will be debited and credited in their respective Vostro accounts, thus
+allowing them to transfer money.
 
 \index{vostro account}
-
 \index{CHIPS}
 
-International wire transfers are done on the SWIFT (Society for
-Worldwide Interbank Financial Telecommunication) network which forms the messaging
+International wire transfers are done on the SWIFT (Society for Worldwide
+Interbank Financial Telecommunication) network, which forms the messaging
 systems by which banks communicate messages about international transfers. The
-SWIFT network doesn't move money itself but simply is a messaging protocol for
-institutions to communicate the intent of transfers to happen. In addition banks
-can only work directly with overseas banks with whom it holds accounts, this is
-known as a \textit{correspondent account}. If a bank does not have a
-correspondent banking relationship, they will have to route the wire through a
-third party bank who does. This amounts to having a vostro account of a foreign
-bank, or going through a chain of correspondent banks who do.
+SWIFT network does not move money itself but simply is a messaging protocol for
+institutions to communicate the intent of transfers to happen. In addition,
+banks can only work directly with overseas banks with whom it holds accounts;
+this is known as a *correspondent account*. If a bank does not have a
+correspondent banking relationship, it will have to route the wire through a
+third-party bank. This process entails having a Vostro account of a foreign bank
+or going through a chain of correspondent banks that do.
+
 \index{SWIFT}
 \index{wire transfers}
 
-Every hop along this chain incurs compliance checks with domestic laws
-and often involves multiple human and technical touch points inside or
-the organisation to complete the wire. At each step along this process
-they each party involved in the transaction chain is legally required to
-carry out AML (anti-money laundering) and sanctions checks to ensure
-that the transfer complies with domestic laws and international
-treaties. If these checks complete, the transfer is completed and the
-money will be credited to the target account. The fees associated with
-this transfer are deducted from the total amount and represent the
-operational costs of performing all of these compliance checks along the
-way.
+Every hop along this chain incurs compliance checks with domestic laws and often
+involves multiple human and technical touchpoints inside or the organization to
+complete the wire. At each step along this process each party involved in the
+transaction chain is legally required to carry out AML (anti-money laundering),
+and sanctions check to ensure that the transfer complies with domestic laws and
+international treaties. If these checks are complete, the transfer is completed
+and the money will be credited to the target account. The fees associated with
+These transfers are deducted from the total amount and represent the operational
+costs of performing all of these compliance checks along the way.
 
 \index{sanctions}
 \index{anti-money laundering}
 
 \begin{infobox}
  \textbf{
-   Cryptocurrency is purposefully built to evade regulation and make compliance
-   impossible. This is incompatible with it existing under the rule of law.
+   Cryptocurrency is purposefully built to evade regulation and make compliance impossible and is thus incompatible with cryptocurrency existing under the rule of law.
   }
 \end{infobox}
 
 The bottleneck along this process is never the technical transmission of the
-messages. Like any modern electronic messaging systems they are almost
-instantaneous. Any human touchpoint will be subject to operating hours of the
-bank and days on which they are open for business which is often only business
-hours and work days.
+messages. Like any modern electronic messaging system, they are almost
+instantaneous. Any human touchpoint will be subject to the bank's operating
+hours and days on which they are open for business, which is often only business
+hours and workdays.
 
-Normal fintech companies like Wise (previously known as TransferWise) have come
+Regular fintech companies like Wise (previously known as TransferWise) have come
 up with alternative solutions to international payments for small amounts that
 everyday customers send often. Since most retail transactions are small (less
-than \$5000 per day) Wise's internal system matches users attempting to send
+than \$5000 per day). Wise's internal system matches users attempting to send
 small amounts in one currency block with corresponding users sending amounts in
 the opposite currency block.  Wise uses these pools of funds to net out
 aggregate transactions via local bank transfers.
 
-The inability to move money from a country is ultimately one of domestic internal
-infrastructure development and external international relations, not of
-technical limitations. And the proposed use case for cryptocurrency as a mode of
-international remittances is fundamentally limited in scale because of a lack of
-a coherent compliance story. Even if we were to hypothetically use
-cryptocurrency as a theoretical international settlement medium, this system
-hasn't removed financial institutions from the equation. Both the entry and exit
-points of this system would have to perform the same kind of checks of outgoings
-and incoming money flows as required by an enormous number of international
-agreements.
+The inability to move money from a country is ultimately one of domestic
+internal infrastructure development and external international relations, not
+technical limitations. Moreover, the proposed use case for cryptocurrency as a
+mode of international remittances is fundamentally limited because of a lack of
+a coherent compliance story. Even if we were to use cryptocurrency as a
+hypothetical international settlement medium, this system has not removed
+financial institutions from the equation. The system's entry and exit points
+would have to perform the same checks of outgoing and incoming money flow
+required by many international agreements.
 
 \index{remittances}
 
-In this hypothetical scenario we've simply shifted the custodial, compliance, and
-identity management responsibilities to a different centralized entity which
-performs exactly the same activities and ultimately is subject to the same legal
-liabilities. And insteady of settling in a currency pair, there is no two
-currency pairs with a useless and voltile intermediary in between. Using
-cryptocurrency for remittance hasn't disintermediated anything, it's just
-shifted the intermediaries and introduced another level of indirection for no
-reason.
+In this hypothetical scenario, we have simply shifted the custodial, compliance,
+and identity management responsibilities to a different centralized entity that
+performs precisely the same activities and ultimately is subject to the same
+legal liabilities. In this setup, instead of settling in a national currency
+pair, there are now two currency pairs with a useless and volatile intermediary
+step in between. Using cryptocurrency for remittance has not disintermediated
+anything; it has simply shifted the intermediaries and introduced another level
+of indirection for no reason.
 
 A system that aimed to replace the existing international transfers would be
-subject to the similar set of rules regarding international transfers and
-capital controls and it is naive to think hundreds of treaties would be
-renegotiated on behalf of digital currencies. Of course the counterargument is,
-like all cryptocurrency arguments, an ideological one. Compliance is a non-issue
-because nation states simply should not exist and should not have capital
-controls. This is the ideological goal that is inexorably embedded in
-cryptocurrency and which ultimately makes it unscalable and untenable technology
-for any real-world application where sanctions, laws, and compliance are
-inescapable part of doing business in financial services.
+subject to a similar set of rules regarding international transfers and capital
+controls, and it is naive to think hundreds of treaties would be renegotiated on
+behalf of digital currencies. Of course, like all cryptocurrency arguments, the
+counterargument is an ideological one. Compliance is a non-issue because
+nation-states should not exist and should not have capital controls. This
+ideological goal is inexorably embedded in cryptocurrency's design, making it
+unscalable and untenable technology for any real-world application where
+sanctions, laws, and compliance are an inescapable part of doing business in
+financial services.
 
 \index{anarchy}
