@@ -2,7 +2,7 @@
 
 Market Manias, Phony Populism, and Techno-solutionism
 
-Progress: 🔲🔲🔲🔲⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹ (4/28)
+Progress: 🔲🔲🔲🔲🔲⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹ (5/28)
 
 - [ ] Introduction
 - [x] History of Crypto
@@ -11,11 +11,11 @@ Progress: 🔲🔲🔲🔲⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹
 - [ ] Casino Capitalism
 - [x] Technical Problems
 - [ ] Economic Problems
-- [ ] Environmental Problems
+- [x] Environmental Problems
 - [ ] Ethical Problems
-- [ ] Valuing of Crypto Assets
+- [ ] Valuation of Crypto
 - [ ] Crypto Exchanges
-- [ ] Journalism
+- [x] Journalism
 - [ ] Fraud
 - [ ] ICOs
 - [ ] Digital Gold

@@ -2,7 +2,7 @@
 
 The success of an emerging technology is not an inevitability, and not all
 technical innovation is unqualifiedly good. The software industry's history is
-like any other engineering discipline -- full of dead ends, false starts, and
+like any other engineering discipline---full of dead ends, false starts, and
 wrong turns. Software is unconstrained by many traditional factors; however, it
 is ultimately constrained by the economics of its applications and the
 limitations of computer science.
@@ -10,6 +10,8 @@ limitations of computer science.
 The fundamental technical shortcomings of cryptocurrency stem from four major
 categories: scalability, privacy, security, recentralization, and
 incompatibility with existing infrastructure and legal structures.
+
+\index{recentralization}
 
 \section{Scalability}
 
@@ -52,7 +54,9 @@ or 12,000 transactions per minute. Redis is a key-value store and can do 110,000
 writes per second or 6 million transactions per minute. However, since all core
 banking solutions use traditional databases as their storage engine, these
 numbers represent a baseline figure throughput that should be stated for base
-comparison. \cite{katz_2017}
+comparison. \cite{katz_bitcoin_2017}
+
+\index{relational database}
 
 An appropriate comparison would be the Visa credit card network, whose
 self-reported figures are 3,526 transactions per second. Most credit card
@@ -69,7 +73,9 @@ that bitcoin can handle retail transaction loads on a global scale, this is the
 definitive benchmark that must be reached for technical parity.
 
 \index{Visa}
+\index{block size}
 \index{bitcoin!transaction speed}
+\index{bitcoin!transaction throughput}
 
 \begin{infobox}
  \textbf{
@@ -80,6 +86,7 @@ definitive benchmark that must be reached for technical parity.
   }
 \end{infobox}
 
+\index{bitcoin!as speculative asset}
 
 Building these payment processing systems can be viewed through a lens of
 compromise between three factors: scalability, decentralization, and security.
@@ -91,7 +98,7 @@ transmitter services is designed to be scalable and secure.
 
 The scalability issues of the bitcoin protocol are universally recognized, and
 there have been many proposed solutions that alter the protocol itself.
-\cite{hinzen2019proof} Bitcoin development is a collaboration between three
+\cite{hinzen_proof--works_2019} Bitcoin development is a collaboration between three
 spheres of influence: the exchanges who onboard users and issue the bulk of
 transactions, the core developers who maintain the official clients and define
 the protocol in software, Furthermore, the miners who purchase the physical
@@ -110,8 +117,8 @@ for fear of upsetting the economic order they are profiting from.
 
 It is a common joke in software development that the answer to any difficult
 technical problem is simply to add another level of indirection to the problem.
-This leads us to our new problem: Lightning Network. Since the base protocol is
-unscalable, the seemingly natural solution to adapting this network is to add
+This leads us to our new problem: the lightning network. Since the base protocol
+is unscalable, the seemingly natural solution to adapting this network is to add
 yet another network on top of the bitcoin network. This proposed design of this
 system would batch settlements between peers into bidirectional state channels.
 These state channels are managed by a smart contract but must be monitored by
@@ -130,7 +137,7 @@ states.
 
 The lightning network itself introduces a whole new set of attack vectors for
 double spends and frauds as outlined in many cybersecurity papers such as the
-"Flood and Loot" attack \cite{harris2020flood}. This attack effectively allows
+"Flood and Loot" attack \cite{harris_flood_2020}. This attack effectively allows
 attackers to make specific bulk attacks on state channels to drain users' funds.
 The lightning network is an experiment and untested approach to scaling, and
 progress on this scaling approach has stagnated since 2018. According to
@@ -145,7 +152,7 @@ always been 18 months away from adoption. Moreover, this narrative is updated
 every 18 months it fails to deliver. In software parlance, the term vapourware
 is used to describe software perpetually in the works of being developed but
 never materializing into a usable form. The bitcoin lightning network is pure
-vapourware.
+vapourware. \cite{rosenthal_stanford_nodate}
 
 \begin{infobox}
  \textbf{Bitcoin transactions are considerably more expensive than any other means of payment.}
@@ -189,6 +196,7 @@ decentralized network can scale to Visa levels while maintaining censorship
 resistance and without centralization. Independent of this faith, the
 fundamental reality is that cryptocurrency currently does not scale and cannot
 adapt itself to fit the existing realities of how the world transacts.
+\cite{kharkharif_bitcoins_2019}
 
 \section{Privacy}
 
@@ -331,6 +339,8 @@ should not perform this level of financial obfuscation and needless overhead for
 their normal daily activities. This solution is also indistinguishable from the
 money laundering process used by criminals. For cryptocurrency to pose any value
 to the commercial banking sector, this question requires a good answer.
+
+\index{money laundering}
 
 If we step back, this conundrum begs a more profound question. Why are we making
 what was once a non-problem into a complex problem? Since banking was invented
