@@ -2,7 +2,7 @@
 
 Market Manias, Phony Populism, and Techno-solutionism
 
-Progress: 🔲🔲🔲🔲🔲🔲⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹ (6/28)
+Progress: 🔲🔲🔲🔲🔲🔲🔲⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹ (7/28)
 
 - [ ] Introduction
 - [x] History of Crypto
@@ -19,7 +19,7 @@ Progress: 🔲🔲🔲🔲🔲🔲⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹�
 - [ ] Fraud
 - [ ] ICOs
 - [ ] Digital Gold
-- [ ] The Cult of Crypto
+- [x] The Cult of Crypto
 - [ ] Stablecoins
 - [x] Smart contracts
 - [ ] DeFi
