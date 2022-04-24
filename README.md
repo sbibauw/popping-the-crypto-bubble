@@ -2,7 +2,7 @@
 
 Market Manias, Phony Populism, and Techno-solutionism
 
-Progress: 🔲🔲🔲🔲🔲🔲🔲⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹ (7/28)
+Progress: 🔲🔲🔲🔲🔲🔲🔲🔲🔲⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹ (9/28)
 
 - [ ] Introduction
 - [x] History of Crypto
@@ -14,7 +14,7 @@ Progress: 🔲🔲🔲🔲🔲🔲🔲⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹
 - [x] Environmental Problems
 - [ ] Ethical Problems
 - [x] Valuation of Crypto
-- [ ] Crypto Exchanges
+- [x] Crypto Exchanges
 - [x] Journalism
 - [ ] Fraud
 - [ ] ICOs
