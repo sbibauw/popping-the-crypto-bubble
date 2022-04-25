@@ -2,7 +2,7 @@
 
 Market Manias, Phony Populism, and Techno-solutionism
 
-Progress: 🔲🔲🔲🔲🔲🔲🔲🔲🔲⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹ (9/28)
+Progress: 🔲🔲🔲🔲🔲🔲🔲🔲🔲⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹ (10/28)
 
 - [ ] Introduction
 - [x] History of Crypto
@@ -16,7 +16,7 @@ Progress: 🔲🔲🔲🔲🔲🔲🔲🔲🔲⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹�
 - [x] Valuation of Crypto
 - [x] Crypto Exchanges
 - [x] Journalism
-- [ ] Fraud
+- [x] Fraud & Scams
 - [ ] ICOs
 - [ ] Digital Gold
 - [x] The Cult of Crypto
