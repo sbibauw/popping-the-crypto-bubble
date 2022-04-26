@@ -2,11 +2,11 @@
 
 Market Manias, Phony Populism, and Techno-solutionism
 
-Progress: 🔲🔲🔲🔲🔲🔲🔲🔲🔲⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹ (10/28)
+Progress: 🔲🔲🔲🔲🔲🔲🔲🔲🔲🔲🔲🔲🔲🔲⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹ (11/27)
 
-- [ ] Introduction
+- [x] Introduction
 - [x] History of Crypto
-- [ ] Crypto Culture
+- [x] Crypto Culture
 - [ ] Crypto Narratives
 - [ ] Casino Capitalism
 - [x] Technical Problems
@@ -26,12 +26,11 @@ Progress: 🔲🔲🔲🔲🔲🔲🔲🔲🔲⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹�
 - [x] Ransomware
 - [ ] Blockchainism
 - [ ] NFTs
-- [ ] Diem / Libra
 - [ ] Central Bank Digital Currencies
 - [ ] Financial Nihilism
 - [ ] Financial Populism
-- [ ] Regulation
 - [ ] Historical Market Bubbles
+- [ ] Regulation
 - [ ] Conclusion
 
 
