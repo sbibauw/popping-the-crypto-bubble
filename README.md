@@ -2,7 +2,7 @@
 
 Market Manias, Phony Populism, and Techno-solutionism
 
-Progress: 🔲🔲🔲🔲🔲🔲🔲🔲🔲🔲🔲🔲🔲🔲⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹ (11/27)
+Progress: 🔲🔲🔲🔲🔲🔲🔲🔲🔲🔲🔲🔲🔲🔲⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹⏹ (12/27)
 
 - [x] Introduction
 - [x] History of Crypto
@@ -24,7 +24,7 @@ Progress: 🔲🔲🔲🔲🔲🔲🔲🔲🔲🔲🔲🔲🔲🔲⏹⏹⏹⏹�
 - [x] Smart contracts
 - [ ] DeFi
 - [x] Ransomware
-- [ ] Blockchainism
+- [x] Blockchainism
 - [ ] NFTs
 - [ ] Central Bank Digital Currencies
 - [ ] Financial Nihilism
