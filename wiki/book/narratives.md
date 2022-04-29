@@ -1,4 +1,4 @@
-# Narratives
+# Crypto Narratives
 Crypto is an inherently political technology.
 
 ## Libertarianism
